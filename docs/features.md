@@ -1,33 +1,46 @@
 # Features
 
+What Qualix can do. For how to actually do it, see [Using Qualix](usage.md).
+
 ## Data quality
 
-Define rules for your tables, track pass/fail results, and follow a quality-score
-trend over time. Rows that fail can be quarantined so bad data doesn't spread
-downstream. Qualix can also **suggest rules for you** by profiling your columns,
-so a new install has something to review instead of a blank page.
+Define rules for your monitored tables — built-in checks, custom SQL, or
+referential-integrity checks. Each rule run produces a pass/fail result and rolls up
+into a quality-score trend over time.
+
+- **Rule suggestions** — Qualix profiles your columns and proposes rules, each with a
+  reason drawn from that column's own numbers, so a new install has something to
+  review instead of a blank page. Nothing is enabled until you approve it.
+- **Quarantine** — rows that fail a rule can be moved aside so bad data doesn't spread
+  downstream, instead of only being flagged.
 
 ## Observability
 
-Qualix automatically watches your tables for unexpected changes in:
+Qualix automatically watches your monitored tables for unexpected changes in:
 
 - Volume
 - Freshness
 - Schema
 
-When something looks wrong, it raises an incident so you can investigate before it
-reaches downstream consumers.
+When something looks wrong it raises an **incident**, so you can investigate before it
+reaches downstream consumers. Each incident records what changed and when, tracks
+whether it is still open or has recovered, and can carry an AI-generated explanation
+of the likely cause.
 
 ## Discovery
 
-Browse a catalog of your data, see table lineage, find your most-used tables, and
-surface stale ones that may no longer be needed.
+Browse a catalog of your monitored data: table lineage, your most-used tables, and
+stale or unused tables that may no longer be needed.
 
 ## Governance
 
-Review data classification, policies, access grants, and tag coverage. Qualix also
-**looks at your column values** to find personal data nobody has classified yet, and
-**generates the masking SQL** to protect it — it never applies that SQL for you.
+Review data classification, policies, access grants, and tag coverage across your
+monitored objects.
+
+- **Sensitive data scan** — samples row values to find personal data nobody has
+  classified yet.
+- **Compliance** — generates masking SQL for the sensitive columns you confirm.
+  Qualix never runs that SQL for you; it's yours to review and apply.
 
 ## Cost
 
@@ -48,6 +61,9 @@ powered by Snowflake Cortex, running inside your account. Every number on a dash
 every pass/fail decision, and every generated SQL statement is computed in code, not
 by a model — AI proposes candidates for a human to approve; it never decides whether
 your data is good.
+
+Every AI feature has a non-AI fallback and can be turned off independently. See
+[Security & Privacy](security.md) for exactly what each feature sends to a model.
 
 ## Snowflake-native architecture
 
