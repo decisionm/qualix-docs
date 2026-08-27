@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/features/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/installation/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/privileges/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/security/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/support/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/troubleshooting/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;your-org&gt;.github.io/qualix-docs/usage/</loc>
+         <lastmod>2026-08-27</lastmod>
+    </url>
+</urlset>
