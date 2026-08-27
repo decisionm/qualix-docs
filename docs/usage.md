@@ -1,13 +1,53 @@
 # Using Qualix
 
-How to operate Qualix day to day. For what each capability *is*, see
-[Features](features.md).
+## Data quality
 
-Before you start, make sure you have granted tables, views, and a warehouse under
-**Admin → Connections**. See [Installation](installation.md) and
-[Required Privileges](privileges.md).
+Define rules for your monitored tables (built-in checks, custom SQL, or
+referential-integrity checks). Each rule run produces a pass/fail result and rolls up
+into a quality-score trend over time.
 
-## Your first ten minutes
+- **Suggestions** — profile your granted tables and propose rules, each with a reason
+  drawn from that column's own numbers. Nothing is enabled until you approve it.
+- **Quarantine** — rows that fail a rule can be quarantined so bad data doesn't spread
+  downstream, instead of only being flagged.
+- **Gating** — set a rule's **On failure** action to **Block downstream tasks** and
+  call `core.gate` from your own task graph to stop a DAG when a gating rule has an
+  open failure.
+
+## Observability
+
+Qualix automatically watches monitored tables for unexpected changes in volume,
+freshness, and schema, and raises an **incident** when something looks wrong. Use
+incident views to:
+
+- See what changed and when
+- Read an AI-generated explanation of the likely cause (optional, Cortex-powered)
+- Track whether an incident is still open or has recovered
+
+## Discovery
+
+Browse a catalog of your monitored data:
+
+- Table lineage
+- Most-used tables
+- Stale or unused tables that may no longer be needed
+
+## Governance
+
+Review data classification, policies, access grants, and tag coverage across your
+monitored objects.
+
+- **Sensitive data scan** — samples rows to find personal data nobody has classified
+  yet.
+- **Compliance** — generates masking SQL for confirmed sensitive columns. Qualix never
+  runs this SQL for you; it's yours to review and apply.
+
+## Cost
+
+See warehouse spend, burn rate, idle warehouses, query spilling, and your most
+expensive queries, so you can keep Snowflake costs in check.
+
+## Recommended first-ten-minutes workflow
 
 All three of these are **on demand** — none of them runs on a schedule, and each one
 tells you what it will cost before you press it.
@@ -22,60 +62,10 @@ tells you what it will cost before you press it.
    reports which columns look personal, then **Governance → Compliance** generates the
    masking SQL for the ones you confirm.
 
-## Set up data-quality rules
-
-1. Go to **Data quality → Suggestions** and select *Generate* to have Qualix propose
-   rules from your column statistics. Review each one and approve the rules you want.
-2. Add any further rules by hand — built-in checks, custom SQL, or
-   referential-integrity checks.
-3. Watch results build up as a pass/fail history and a quality-score trend.
-
-Approved rules start as **alert-only**. To quarantine failing rows instead of only
-flagging them, turn quarantine on for that rule.
-
-### Block a pipeline on failure
-
-1. Set the rule's **On failure** action to **Block downstream tasks**.
-2. Call `core.gate` as a step in your own task graph.
-
-The call raises an exception and stops your DAG whenever that gating rule has an open
-failure. Qualix only reads state here — it never modifies your tasks.
-
-## Investigate an incident
-
-When Qualix detects an unexpected change in volume, freshness, or schema, it raises an
-incident. Open the incident to:
-
-- See what changed and when
-- Read an AI-generated explanation of the likely cause (optional, Cortex-powered)
-- Track whether the incident is still open or has recovered
-
-## Explore your data
-
-Use **Discovery** to browse the catalog of your monitored tables, follow lineage,
-find your most-used tables, and surface stale ones that may no longer be needed.
-
-## Find and mask sensitive data
-
-1. **Governance → Sensitive data** → *Scan for PII*. Qualix samples row values and
-   reports which columns look personal.
-2. Confirm the columns that really are sensitive.
-3. **Governance → Compliance** generates the masking SQL for them.
-4. Review that SQL and run it yourself.
-
-Qualix never executes remediation SQL for you — it holds read-only grants on your
-objects. See [Security & Privacy](security.md).
-
-## Review cost
-
-Use **Cost** to check warehouse spend, burn rate, idle warehouses, query spilling, and
-your most expensive queries.
-
 ## Admin
 
 - **Connections** — grant or revoke tables, views, and the warehouse Qualix uses.
-  Revoking a grant immediately stops monitoring for that object.
-- **Schedules** — resume or pause automatic checks. Nothing runs, and no credits are
+- **Schedules** — resume or pause automatic checks; nothing runs, and no credits are
   spent, until this is turned on.
 - **Setup & health** — see the name the app was installed under and its current
   health status.
