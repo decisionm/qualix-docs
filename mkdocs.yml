@@ -4,6 +4,21 @@ site_url: https://decisionm.github.io/qualix-docs/
 
 theme:
   name: material
+  logo: assets/img/strata-logo.png
+  favicon: assets/img/strata-favicon.png
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.sections
@@ -11,6 +26,9 @@ theme:
     - search.highlight
     - search.suggest
     - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: index.md

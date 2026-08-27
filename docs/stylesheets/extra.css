@@ -1,0 +1,23 @@
+:root {
+  --md-primary-fg-color: #29b5e8;
+  --md-primary-fg-color--light: #5cc9ee;
+  --md-primary-fg-color--dark: #1a8cc0;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #11567f;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #29b5e8;
+  --md-primary-fg-color--light: #5cc9ee;
+  --md-primary-fg-color--dark: #1a8cc0;
+  --md-accent-fg-color: #5cc9ee;
+}
+
+.md-header__button.md-logo {
+  margin-inline-end: 0;
+  padding-inline-end: 0;
+}
+
+[dir="ltr"] .md-header__title {
+  margin-left: 0.3rem;
+}
