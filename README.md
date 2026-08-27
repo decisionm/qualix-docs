@@ -18,7 +18,7 @@ http://127.0.0.1:8000
 
 ## Deploy to GitHub Pages
 
-1. Create a public GitHub repository, for example `<your-org>/qualix-docs`.
+1. Create a public GitHub repository, for example `decisionm/qualix-docs`.
 2. Push this repository to the `main` branch.
 3. Open **Settings → Pages**.
 4. Under **Build and deployment**, select **GitHub Actions**.
@@ -26,13 +26,13 @@ http://127.0.0.1:8000
 6. The published site is available at:
 
 ```text
-https://<your-org>.github.io/qualix-docs/
+https://decisionm.github.io/qualix-docs/
 ```
 
 Typical URL:
 
 ```text
-https://<your-org>.github.io/qualix-docs/
+https://decisionm.github.io/qualix-docs/
 ```
 
 ## Push commands
@@ -42,6 +42,6 @@ git init
 git add .
 git commit -m "Add Qualix documentation"
 git branch -M main
-git remote add origin https://github.com/<your-org>/qualix-docs.git
+git remote add origin https://github.com/decisionm/qualix-docs.git
 git push -u origin main
 ```

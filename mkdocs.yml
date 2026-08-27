@@ -1,6 +1,6 @@
 site_name: Qualix Documentation
 site_description: Native Snowflake data quality, governance, and observability
-site_url: https://<your-org>.github.io/qualix-docs/
+site_url: https://decisionm.github.io/qualix-docs/
 
 theme:
   name: material
