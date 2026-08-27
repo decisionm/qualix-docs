@@ -1,0 +1,43 @@
+site_name: Qualix Documentation
+site_description: Native Snowflake data quality, governance, and observability
+site_url: https://<your-org>.github.io/qualix-docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Required Privileges: privileges.md
+  - User Guide:
+      - Using Qualix: usage.md
+      - Features: features.md
+  - Security & Privacy: security.md
+  - Troubleshooting: troubleshooting.md
+  - Support: support.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+
+plugins:
+  - search
+
+extra:
+  generator: false
+
+copyright: Copyright &copy; 2026 Qualix
