@@ -16,24 +16,15 @@ Then open:
 http://127.0.0.1:8000
 ```
 
-## Deploy to GitHub Pages
+## Deploy to Cloudflare Pages
 
-1. Create a public GitHub repository, for example `decisionm/qualix-docs`.
-2. Push this repository to the `main` branch.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, select **GitHub Actions**.
-5. The included workflow will build and deploy the site.
-6. The published site is available at:
-
-```text
-https://decisionm.github.io/qualix-docs/
-```
-
-Typical URL:
-
-```text
-https://decisionm.github.io/qualix-docs/
-```
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git**.
+2. Select this repository (`decisionm/qualix-docs`) and branch `main`.
+3. Build settings:
+   - Framework preset: **None**
+   - Build command: `pip install -r requirements.txt && mkdocs build --strict`
+   - Build output directory: `site`
+4. Save and deploy. Cloudflare will rebuild automatically on every push to `main`.
 
 ## Push commands
 
